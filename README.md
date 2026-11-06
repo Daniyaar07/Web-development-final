@@ -29,12 +29,14 @@ The web application includes five fully styled pages connected by a consistent n
 - **Consistent UI/UX:** Unified color palette, shared navigation, and dedicated detail pages across all 5 views.
 
 ## Project Structure
-├── *.html        # 5 web pages (Home, Catalogue, Product, About, Contact)
-
-├── style.css     # Global styles (Navbar, Footer, base rules)
-
-├── *.css         # Page-specific stylesheets
-
-├── *.jpg, *.png  # Media assets (product images, branding icons, map)
-
-└── README.md     # Project documentation
+```
+├── *.html            # 5 web pages (Home, Catalogue, Product, About, Contact)
+├── css/
+│   ├── style.css     # Global styles (Navbar, Footer, base rules)
+│   └── *.css         # Page-specific stylesheets
+├── js/
+│   ├── catalogue.js  # Catalogue: product list, category filter, live search
+│   └── validation.js # Contact form validation
+├── photo/            # Media assets (product images, branding icons, map)
+└── README.md         # Project documentation
+```

@@ -1,101 +1,63 @@
-.product {
-    display: grid;
-    grid-template-columns: 2.5fr 1fr;
-    gap: 30px;
-    margin-top: 20px;
-}
-.search {
-    display: flex;
+.product-info {
+    position: sticky;
+    top: 2rem;
 }
 
-.search input {
-    width: 250px;
-    height: 40px;
-    padding-left: 12px;
-    border: 1px solid #ddd;
+.product-info h1 {
+    font-size: 1.85rem;
+    letter-spacing: -0.02em;
 }
 
-.search button {
-    width: 75px;
-    height: 40px;
-    background-color: #1a1a1a;
-    color: white;
-    border: none;
-    border-radius: 0 6px 6px 0;
-}
-.photos {
-    display: flex;
-    gap:20px;
-}
-.photo {
-    width: 50%;
-    height: 540px;
-    background-color: #d9d9d9;
-}
-.info h1 {
-    font-size: 30px;
-    margin-bottom: 10px;
-}
 .colour {
     display: flex;
-    gap:8px;
-    margin-bottom: 12px;
+    gap: 10px;
 }
-.white, .gray, .black {
-    width: 35px;
-    height: 35px;
-    border:1px solid gray;
+
+.colour .white,
+.colour .gray,
+.colour .black {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    border: 1px solid rgba(0, 0, 0, 0.2);
 }
-.white {
-    background-color: white;
+
+.colour .white {
+    background-color: #ffffff;
 }
-.gray {
-    background-color: gray;
+
+.colour .gray {
+    background-color: #7d7d7d;
 }
-.black {
-    background-color: black;
+
+.colour .black {
+    background-color: #1a1a1a;
 }
-.size {
-    display: flex;
-    gap: 8px;
+
+.colour div:hover {
+    transform: scale(1.1);
 }
-.size button {
-    width: 55px;
-    height: 40px;
-    border: 1px solid gray;
+
+.colour div.active,
+.colour div:focus {
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #1a1a1a;
 }
-.selected{
-    background-color: black;
-    color: white;
+
+.btn-outline-dark:hover {
+    color: #fff;
+    background-color: #1a1a1a;
+    border-color: #1a1a1a;
 }
-.basket {
-    display:flex;
-    gap: 8px;
-    margin-top: 18px;
+
+.product-details-img {
+    height: 520px;
+    object-fit: cover;
 }
-.delivery {
-    margin:5px 0;
-    padding: 5px 0;
-    font-size: 15px;
-}
-.price {
-    font-size: 20px;
-}
-.site-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-@media (max-width: 768px) {
-    .product {
-        grid-template-columns: 1fr;
-    }
-}
-@media (max-width: 480px) {
-    .product {
-        flex-direction: column;
-    }
-    .photo {
-        width: 100%;
+
+@media (max-width: 576px) {
+    .product-details-img {
+        height: 380px;
     }
 }

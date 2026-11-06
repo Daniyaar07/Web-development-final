@@ -61,3 +61,22 @@
         height: 380px;
     }
 }
+
+.colour .selected {
+    outline: 3px solid gold;
+    outline-offset: 3px;
+}
+
+.thumbnail {
+    cursor: pointer;
+}
+
+.thumbnail:hover {
+    opacity: 0.7;
+}
+
+#mainImage {
+    max-width: 450px;
+    display: block;
+    margin: auto;
+}

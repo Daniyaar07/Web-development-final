@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MODANOVA - Basic cotton tee</title>
+    <title>MODANOVA - About</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="productpg.css">
+    <link rel="stylesheet" href="about.css">
     <link rel="icon" type="image/png" href="photo/logo.png">
 </head>
-<body class="d-flex flex-column min-vh-100">
-
+<body>
     <nav class="navbar navbar-expand-lg custom-navbar py-3" data-bs-theme="dark">
         <div class="container">
             <a class="navbar-brand fw-bold tracking-wide" href="index.html">MODANOVA</a>
@@ -20,8 +19,8 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto ms-4">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active fw-bold" href="catalogue.html">Catalogue</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="catalogue.html">Catalogue</a></li>
+                    <li class="nav-item"><a class="nav-link active fw-bold" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
                 <div class="nav-icons d-flex align-items-center gap-3">
@@ -35,86 +34,34 @@
             </div>
         </div>
     </nav>
-
-    <main class="flex-grow-1 container my-4">
-        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb mb-0">
-                    <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-muted">Home</a></li>
-                    <li class="breadcrumb-item"><a href="catalogue.html" class="text-decoration-none text-muted">Catalogue</a></li>
-                    <li class="breadcrumb-item active fw-semibold" aria-current="page">Basic cotton tee</li>
-                </ol>
-            </nav>
-            <form class="input-group shop-search" action="catalogue.html" method="get" role="search" style="max-width: 300px;">
-                <input type="search" name="q" class="form-control" placeholder="Search products" aria-label="Search products">
-                <button class="btn btn-dark" type="submit">Search</button>
-            </form>
-        </div>
-
-        <div class="row g-4 g-lg-5">
-            <!-- Photos Column -->
-            <div class="col-12 col-md-6 col-lg-7">
-                <div class="row g-3">
-                    <div class="col-12 col-sm-6">
-                        <img src="photo/blacktshirt1.jpg" class="img-fluid rounded w-100 object-fit-cover shadow-sm" alt="Basic cotton tee front view">
-                    </div>
-                    <div class="col-12 col-sm-6">
-                        <img src="photo/blacktshirt2.jpg" class="img-fluid rounded w-100 object-fit-cover shadow-sm" alt="Basic cotton tee back view">
-                    </div>
-                </div>
+    <main class="about-page">
+        <div class="about-row">
+            <div class="about-text">
+                <h1>About Us</h1>
+                <p>MODANOVA is a contemporary online store offering high-quality
+                basics and trend-focused apparel designed for everyday comfort.
+                We focus on premium fabrics, thoughtful tailoring and versatile
+                pieces that effortlessly complete your wardrobe.</p>
             </div>
-
-            <div class="col-12 col-md-6 col-lg-5">
-                <div class="product-info ps-lg-2">
-                    <span class="text-muted text-uppercase small fw-bold tracking-wide d-block mb-1">Essentials</span>
-                    <h1 class="display-6 fw-bold mb-2">Basic cotton tee</h1>
-                    <p class="h3 fw-bold mb-3 text-dark">8 670 ₸</p>
-                    <p class="text-muted mb-4">A soft, midweight cotton tee with a clean crew neck and a relaxed fit. Easy to layer, made for everyday comfort.</p>
-                    
-                    <hr class="my-4 text-muted opacity-25">
-
-                    <div class="mb-3">
-                        <label class="form-label text-muted small fw-bold text-uppercase mb-2">Colour</label>
-                        <div class="colour d-flex gap-2">
-                            <div class="white rounded-circle border border-secondary p-3" role="button" title="White"></div>
-                            <div class="gray rounded-circle border border-secondary p-3" role="button" title="Gray"></div>
-                            <div class="black rounded-circle border border-dark p-3" role="button" title="Black"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <label class="form-label text-muted small fw-bold text-uppercase mb-2">Size</label>
-                        <div class="d-flex flex-wrap gap-2">
-                            <button type="button" class="btn btn-outline-dark px-3 py-2">S</button>
-                            <button type="button" class="btn btn-dark px-3 py-2">M</button>
-                            <button type="button" class="btn btn-outline-dark px-3 py-2">L</button>
-                            <button type="button" class="btn btn-outline-dark px-3 py-2">XL</button>
-                        </div>
-                    </div>
-
-                    <div class="d-flex gap-2 mb-4">
-                        <button type="button" class="btn btn-gold btn-lg flex-grow-1 fw-bold">Add to basket</button>
-                        <button type="button" class="btn btn-outline-dark btn-lg px-3" title="Add to wishlist">♡</button>
-                    </div>
-
-
-                    <div class="border rounded p-3 bg-light-subtle">
-                        <p class="small text-muted mb-1 d-flex align-items-center gap-2">
-                            <span>✓</span> Free delivery over 20 000 ₸
-                        </p>
-                        <p class="small text-muted mb-0 d-flex align-items-center gap-2">
-                            <span>✓</span> Easy returns within 14 days
-                        </p>
-                    </div>
-                </div>
+            <div class="about-photo">
+                <img src="photo/about1.jpg" alt="About MODANOVA">
+            </div>
+        </div>
+        <div class="about-row">
+            <div class="about-photo">
+                <img src="photo/about2.jpg" alt="MODANOVA clothing">
+            </div>
+            <div class="about-text">
+                <h2>Our Mission</h2>
+                <p>Discover effortless style, fast worldwide shipping and a seamless
+                shopping experience. We create versatile pieces you can wear every
+                day and love for years.</p>
             </div>
         </div>
     </main>
-
-    <footer class="site-footer text-center py-3 mt-auto">
+    <footer class="site-footer text-center py-3">
         <p class="mb-0">© 2026 MODANOVA. All rights reserved. Designed for everyday comfort.</p>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

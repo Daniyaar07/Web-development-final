@@ -85,3 +85,46 @@
     .category-filter { grid-template-columns: repeat(2, 1fr); }
     .shop-search { max-width: none; }
 }
+.dark-mode .product-card {
+    background-color: #333;
+    color: white;
+}
+
+.dark-mode .product-card h3,
+.dark-mode .product-card p {
+    color: white;
+}
+
+.dark-mode .form-control {
+    background-color: #333;
+    color: white;
+}
+
+.dark-mode .form-control::placeholder {
+    color: #aaa;
+}
+
+.dark-mode .btn-outline-dark {
+    color: white;
+    border-color: white;
+}
+.dark-mode .category-filter .btn-outline-dark {
+    background-color: #333;
+    color: white;
+    border-color: #555;
+}
+
+.dark-mode .form-control {
+    background-color: #333;
+    color: white;
+    border-color: #555;
+}
+
+.dark-mode .form-control::placeholder {
+    color: #aaa;
+}
+
+.dark-mode .product-card {
+    background-color: #333;
+    color: white;
+}

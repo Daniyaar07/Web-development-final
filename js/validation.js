@@ -106,3 +106,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+$(document).ready(function() {
+    $("#topic").change(function() {
+        if ($("#topic").val() === "Returns") {
+            $("#orderField").show();
+            $("#orderId").prop("required", true);
+        } else {
+            $("#orderField").hide();
+            $("#orderId").prop("required", false);
+        }
+    });
+});

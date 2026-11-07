@@ -57,11 +57,16 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label text-muted small">Topic</label>
-                        <select class="form-select bg-transparent">
+                        <select id="topic" class="form-select bg-transparent">
                             <option selected>Order status</option>
                             <option>Returns</option>
                             <option>Other</option>
                         </select>
+                    </div>
+
+                    <div id="orderField" class="mb-3" style="display: none;">
+                        <label class="form-label text-muted small">Order ID</label>
+                        <input type="text" id="orderId" class="form-control bg-transparent">
                     </div>
                     <div class="mb-4">
                         <label class="form-label text-muted small">Message</label>

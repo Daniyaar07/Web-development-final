@@ -3,7 +3,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const nameInput = document.querySelector('input[placeholder="Your name"]');
     const emailInput = document.querySelector('input[type="email"]');
     const messageInput = document.querySelector('textarea');
+    const topic = document.querySelector('#topic');
+    const orderField = document.querySelector('#orderField');
+    const orderId = document.querySelector('#orderId');
 
+    topic.addEventListener('change', function() {
+    if (topic.value === 'Returns') {
+        orderField.style.display = 'block';
+        orderId.required = true;
+        } 
+    else {
+        orderField.style.display = 'none';
+        orderId.required = false;
+        orderId.value = '';
+        }
+    }); 
     function showError(input, message) {
         input.style.borderColor = 'red';
         
@@ -18,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
         nameInput.style.borderColor = '';
         emailInput.style.borderColor = '';
         messageInput.style.borderColor = '';
+        orderId.style.borderColor = '';
 
         const oldErrors = document.querySelectorAll('.error-message');
         for (let error of oldErrors) {
@@ -25,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', async function(e) {
         e.preventDefault();
         
         clearErrors();
@@ -47,17 +62,47 @@ document.addEventListener('DOMContentLoaded', function() {
             showError(messageInput, 'Message must be at least 10 characters long.');
             isValid = false;
         }
-
+        if (topic.value === 'Returns' && orderId.value.trim() === '') {
+            showError(orderId, 'Order ID is required.');
+            isValid = false;
+        }
+        
         if (isValid) {
-            const successDiv = document.createElement('div');
-            successDiv.className = 'alert alert-success mt-3';
-            successDiv.innerText = 'Success! Your message has been sent.';
-            
-            form.appendChild(successDiv);
-            form.reset();
-            setTimeout(() => {
-                successDiv.remove();
-            }, 3000);
+            const button = form.querySelector('button[type="submit"]');
+
+            button.innerText = 'Sending...';
+            button.disabled = true;
+
+        try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: nameInput.value,
+                email: emailInput.value,
+                topic: document.querySelector('#topic').value,
+                orderId: document.querySelector('#orderId').value,
+                message: messageInput.value
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed');
+        }
+
+        alert('Message sent successfully!');
+        form.reset();
+        document.querySelector('#orderField').style.display = 'none';
+        document.querySelector('#orderId').required = false;
+
+        } catch (error) {
+        alert('Failed to send message.');
+        }
+
+        button.innerText = 'Send message';
+        button.disabled = false;
         }
     });
 });

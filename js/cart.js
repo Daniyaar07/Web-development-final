@@ -1,11 +1,11 @@
-//Class manages cart array and loads saved data on initialization
+//class for shopping cart and loading data from localStorage
 class ShoppingCart {
     constructor() {
         const storedCart = localStorage.getItem('modanova_cart');
         this.items = storedCart ? JSON.parse(storedCart) : [];
     }
 
-    // Stringify and save the updated array to browser memory
+    //saving array to localStorage so cart doesn't clear on refresh
     saveData() {
         localStorage.setItem('modanova_cart', JSON.stringify(this.items));
         this.updateBadge();
@@ -16,7 +16,7 @@ class ShoppingCart {
         this.saveData();
     }
 
-    // Create or update the cart counter badge
+    //creating badge element dynamically
     updateBadge() {
         const cartIconBtn = document.querySelector('a[title="Cart"]');
         if (!cartIconBtn) return;
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const priceElement = document.querySelector('.product-info .h3');
 
             if (titleElement && priceElement) {
-                //Call class method to add item on button click
+                //calling class method to add item to array
                 appCart.addItem(titleElement.innerText, priceElement.innerText);
                 
                 let originalText = btnAddBasket.innerText;
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const productName = titleElement.innerText;
             const itemIndex = wishlist.indexOf(productName);
             
-            //Toggle item in wishlist array and save to Local Storage
+            //add or remove item using push() and splice()
             if (itemIndex === -1) {
                 wishlist.push(productName);
                 btnHeart.innerText = '♥';

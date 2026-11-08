@@ -127,3 +127,21 @@ function init() {
 }
 
 document.addEventListener("DOMContentLoaded", init);
+
+// Returns the HTML string of one product card with dynamic ID query parameter
+function createCard(product) {
+    const badge = product.sale
+        ? `<span class="badge-sale">-${product.sale}%</span>`
+        : "";
+    return `
+    <article class="product-card" data-id="${product.id}">
+      <a href="productpg.html?id=${product.id}" class="product-image">
+        <img src="${product.image}" alt="${product.name}">
+        ${badge}
+      </a>
+      <div class="product-info">
+        <h2 class="product-name">${product.name}</h2>
+        <p class="price">${formatPrice(product.price)}</p>
+      </div>
+    </article>`;
+}

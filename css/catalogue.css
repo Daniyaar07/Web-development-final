@@ -1,6 +1,6 @@
 .category-filter {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 8px;
 }
 
@@ -15,6 +15,10 @@
 
 .shop-search {
     max-width: 360px;
+}
+
+.sort-select {
+    max-width: 220px;
 }
 
 .product-grid {
@@ -39,7 +43,9 @@
     display: block;
     width: 100%;
     aspect-ratio: 1 / 1;
-    object-fit: cover;
+    object-fit: contain; /* API photos have different shapes: show the whole product, no cropping */
+    background-color: #fff;
+    padding: 12px;
     transition: transform 0.3s;
 }
 .product-image:hover img {
@@ -84,4 +90,5 @@
     .product-grid { grid-template-columns: 1fr; }
     .category-filter { grid-template-columns: repeat(2, 1fr); }
     .shop-search { max-width: none; }
+    .sort-select { max-width: none; }
 }

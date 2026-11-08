@@ -128,7 +128,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", async () => {
             const params = new URLSearchParams(window.location.search);
-            const id = parseInt(params.get("id")) || 1;
+            const id = parseInt(params.get("id")) || 83; // no id in the address -> a shirt (id 1 in the API is mascara)
 
             // The block is hidden in HTML until the product is loaded (no flash of the placeholder)
             const details = document.getElementById("product-details");

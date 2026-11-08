@@ -152,16 +152,22 @@
             const breadcrumb = document.querySelector(".breadcrumb-item.active");
             if (breadcrumb) breadcrumb.innerText = item.name;
 
+            const photos = item.images.length > 0 ? item.images : [item.image];
+
             const mainImg = document.getElementById("mainImage");
             if (mainImg) {
-                mainImg.src = item.image;
+                mainImg.src = photos[0];
                 mainImg.alt = item.name;
             }
 
-            // The API has one photo per product, so both thumbnails show it
-            document.querySelectorAll(".thumbnail").forEach(thumbnail => {
-                thumbnail.src = item.image;
-                thumbnail.alt = item.name;
+            // Gallery: each thumbnail gets its own photo; a thumbnail without a photo is hidden
+            document.querySelectorAll(".thumbnail").forEach((thumbnail, index) => {
+                if (photos[index]) {
+                    thumbnail.src = photos[index];
+                    thumbnail.alt = item.name + " photo " + (index + 1);
+                } else {
+                    thumbnail.parentElement.hidden = true;
+                }
             });
 
             details.style.visibility = "visible";

@@ -1,12 +1,12 @@
-// Catalogue page (Participant 1): products from FakeStore API, Product class, search, category filter, sorting.
+// Catalogue page (Participant 1): products from DummyJSON API, Product class, search, category filter, sorting.
 
-const API_URL = "https://fakestoreapi.com/products";
+const API_URL = "https://dummyjson.com/products";
 
 // The API gives prices in US dollars; the whole site works in tenge, so we convert with a fixed rate.
 const USD_TO_KZT = 500;
 
-// We are a clothing store, so non-clothing categories of the API are hidden.
-const EXCLUDED_CATEGORIES = ["electronics", "jewelery"];
+// We are a clothing store, so we show only these categories of the API.
+const CLOTHING_CATEGORIES = ["mens-shirts", "tops", "womens-dresses", "mens-shoes", "womens-shoes"];
 
 // One product of the catalogue. Created from one JSON object of the API.
 class Product {
@@ -15,7 +15,8 @@ class Product {
         this.name = data.title; // API calls it "title"; we keep "name" so filterProducts works
         this.category = data.category;
         this.price = Math.round(data.price * USD_TO_KZT); // whole tenge
-        this.image = data.image;
+        this.image = data.thumbnail;      // small photo for the catalogue card
+        this.images = data.images || []; // all photos, for the product page gallery
     }
 
     // Returns the HTML string of this product's card (same classes as before, so the CSS still works).
@@ -160,7 +161,7 @@ function renderCategoryButtons(list) {
         button.type = "button";
         button.className = "btn text-capitalize";
         button.dataset.category = category;
-        button.textContent = category === "all" ? "All" : category;
+        button.textContent = category === "all" ? "All" : category.replaceAll("-", " "); // "mens-shirts" -> "mens shirts"
         container.append(button);
     }
 
@@ -196,16 +197,17 @@ async function loadProducts() {
     showEmptyState(false);
 
     try {
-        const response = await fetch(API_URL);
+        // limit=0 = all products; select = only the fields we need (smaller answer)
+        const response = await fetch(API_URL + "?limit=0&select=title,price,category,thumbnail,images");
         // fetch does NOT fail on 404/500, so we check the status ourselves.
         if (!response.ok) {
             throw new Error("Server answered with status " + response.status);
         }
         const data = await response.json();
 
-        products = data
+        products = data.products
             .map(item => new Product(item))
-            .filter(product => !EXCLUDED_CATEGORIES.includes(product.category));
+            .filter(product => CLOTHING_CATEGORIES.includes(product.category));
         isLoaded = true;
 
         hideStatus();

@@ -126,38 +126,39 @@
     <script src="js/cart.js"></script>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
+        document.addEventListener("DOMContentLoaded", async () => {
             const params = new URLSearchParams(window.location.search);
             const id = parseInt(params.get("id")) || 1;
 
-            if (typeof products !== "undefined") {
-                const item = products.find(p => p.id === id) || products[0];
-
-                // title, price
-                document.title = `MODANOVA - ${item.name}`;
-                document.querySelector(".product-info h1").innerText = item.name;
-                document.querySelector(".product-info .h3").innerText = formatPrice(item.price);
-                
-                const breadcrumb = document.querySelector(".breadcrumb-item.active");
-                if (breadcrumb) breadcrumb.innerText = item.name;
-
-                const mainImg = document.getElementById("mainImage");
-                if (mainImg) {
-                    mainImg.src = item.image;
-                    mainImg.alt = item.name;
-                }
-
-                // Checking for 2 photos
-                const thumbnails = document.querySelectorAll(".thumbnail");
-                if (thumbnails.length >= 2) {
-                    thumbnails[0].src = item.image;
-                    thumbnails[0].alt = item.name;
-
-                    const backImage = (item.id === 1) ? "photo/blacktshirt2.jpg" : item.image;
-                    thumbnails[1].src = backImage;
-                    thumbnails[1].alt = item.name;
-                }
+            // The product comes from the API (fetchProductById is in js/catalogue.js)
+            let item;
+            try {
+                item = await fetchProductById(id);
+            } catch (error) {
+                document.querySelector(".product-info h1").textContent = "Could not load this product";
+                document.querySelector(".product-info .h3").textContent = "";
+                return;
             }
+
+            // title, price
+            document.title = `MODANOVA - ${item.name}`;
+            document.querySelector(".product-info h1").innerText = item.name;
+            document.querySelector(".product-info .h3").innerText = formatPrice(item.price);
+
+            const breadcrumb = document.querySelector(".breadcrumb-item.active");
+            if (breadcrumb) breadcrumb.innerText = item.name;
+
+            const mainImg = document.getElementById("mainImage");
+            if (mainImg) {
+                mainImg.src = item.image;
+                mainImg.alt = item.name;
+            }
+
+            // The API has one photo per product, so both thumbnails show it
+            document.querySelectorAll(".thumbnail").forEach(thumbnail => {
+                thumbnail.src = item.image;
+                thumbnail.alt = item.name;
+            });
         });
     </script>
 </body>

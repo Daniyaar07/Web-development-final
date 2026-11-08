@@ -43,7 +43,7 @@
                 <ol class="breadcrumb mb-0">
                     <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-muted">Home</a></li>
                     <li class="breadcrumb-item"><a href="catalogue.html" class="text-decoration-none text-muted">Catalogue</a></li>
-                    <li class="breadcrumb-item active fw-semibold" aria-current="page">Basic cotton tee</li>
+                    <li class="breadcrumb-item active fw-semibold" aria-current="page"></li>
                 </ol>
             </nav>
             <form class="input-group shop-search" action="catalogue.html" method="get" role="search" style="max-width: 300px;">
@@ -52,7 +52,7 @@
             </form>
         </div>
 
-        <div class="row g-4 g-lg-5">
+        <div class="row g-4 g-lg-5" id="product-details" style="visibility: hidden">
             <div class="col-12 col-md-6 col-lg-7">
                 <div class="row g-3">
                     <div class="col-12">
@@ -130,6 +130,9 @@
             const params = new URLSearchParams(window.location.search);
             const id = parseInt(params.get("id")) || 1;
 
+            // The block is hidden in HTML until the product is loaded (no flash of the placeholder)
+            const details = document.getElementById("product-details");
+
             // The product comes from the API (fetchProductById is in js/catalogue.js)
             let item;
             try {
@@ -137,6 +140,7 @@
             } catch (error) {
                 document.querySelector(".product-info h1").textContent = "Could not load this product";
                 document.querySelector(".product-info .h3").textContent = "";
+                details.style.visibility = "visible";
                 return;
             }
 
@@ -159,6 +163,8 @@
                 thumbnail.src = item.image;
                 thumbnail.alt = item.name;
             });
+
+            details.style.visibility = "visible";
         });
     </script>
 </body>

@@ -2,6 +2,9 @@
 
 const API_URL = "https://fakestoreapi.com/products";
 
+// The API gives prices in US dollars; the whole site works in tenge, so we convert with a fixed rate.
+const USD_TO_KZT = 500;
+
 // We are a clothing store, so non-clothing categories of the API are hidden.
 const EXCLUDED_CATEGORIES = ["electronics", "jewelery"];
 
@@ -11,7 +14,7 @@ class Product {
         this.id = data.id;
         this.name = data.title; // API calls it "title"; we keep "name" so filterProducts works
         this.category = data.category;
-        this.price = data.price;
+        this.price = Math.round(data.price * USD_TO_KZT); // whole tenge
         this.image = data.image;
     }
 
@@ -48,9 +51,9 @@ function escapeHTML(text) {
         .replaceAll("'", "&#39;");
 }
 
-// Returns a price like "$1,234.50" from the number 1234.5.
+// Returns a price like "11 150 ₸" from the number 11150.
 function formatPrice(price) {
-    return "$" + price.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    return price.toLocaleString("ru-RU") + " ₸";
 }
 
 // Returns a NEW array with the products that match the search text and the category.
@@ -212,6 +215,16 @@ async function loadProducts() {
         // Network is down, or the server returned an error.
         showError("Could not load products. Check your internet connection and try again.");
     }
+}
+
+// Loads ONE product by its id (used by the product page). Throws an error if it fails.
+async function fetchProductById(id) {
+    const response = await fetch(API_URL + "/" + id);
+    if (!response.ok) {
+        throw new Error("Server answered with status " + response.status);
+    }
+    const data = await response.json();
+    return new Product(data);
 }
 
 function init() {

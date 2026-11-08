@@ -102,3 +102,22 @@ body {
 .dark-mode .bg-light-subtle {
     background-color: #333 !important;
 }
+
+/* clothes quantity */
+body.dark-mode .btn-group .disabled {
+    background-color: #2a2a2a !important;
+    color: #ffffff !important;
+    border-color: #444444 !important;
+}
+
+/* Checkout btn */
+body.dark-mode #cart-summary .btn-gold {
+    background-color: #d4af37 !important;
+    color: #121212 !important;
+    border: none !important;
+}
+
+body.dark-mode #cart-summary .btn-gold:hover {
+    background-color: #c29d2b !important;
+    color: #000000 !important;
+}

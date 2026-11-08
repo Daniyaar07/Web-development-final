@@ -80,3 +80,46 @@
     display: block;
     margin: auto;
 }
+
+.dark-mode .product-info .btn-outline-dark {
+    color: white;
+    border-color: #777;
+    background-color: #333;
+}
+
+.dark-mode .product-info .btn-dark {
+    background-color: #555;
+    color: white;
+}
+
+.dark-mode .btn-gold {
+    background-color: #d4af67;
+    color: black;
+}
+
+.dark-mode .shop-search .form-control {
+    background-color: #333;
+    color: white;
+    border-color: #555;
+}
+
+.dark-mode .shop-search .form-control::placeholder {
+    color: #aaa;
+}
+
+.dark-mode .product-info .text-muted {
+    color: #ccc !important;
+}
+
+.dark-mode .product-info .text-dark {
+    color: white !important;
+}
+
+.dark-mode .product-info .bg-light-subtle {
+    background-color: #333 !important;
+    color: white;
+}
+
+.dark-mode .product-info .bg-light-subtle p {
+    color: white !important;
+}

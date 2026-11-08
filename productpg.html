@@ -56,15 +56,15 @@
             <div class="col-12 col-md-6 col-lg-7">
                 <div class="row g-3">
                     <div class="col-12">
-                        <img id="mainImage" src="photo/blacktshirt1.jpg" class="img-fluid rounded w-100" alt="Basic cotton tee">
+                        <img id="mainImage" class="img-fluid rounded w-100" alt="">
                     </div>
 
                     <div class="col-6">
-                        <img class="thumbnail img-fluid rounded" src="photo/blacktshirt1.jpg" alt="Front view">
+                        <img class="thumbnail img-fluid rounded" alt="Front view">
                     </div>
 
                     <div class="col-6">
-                        <img class="thumbnail img-fluid rounded" src="photo/blacktshirt2.jpg" alt="Back view">
+                        <img class="thumbnail img-fluid rounded" alt="Back view">
                     </div>
                 </div>
             </div>
@@ -154,10 +154,16 @@
 
             const photos = item.images.length > 0 ? item.images : [item.image];
 
+            // Wait until the main photo is downloaded, so the block appears with the right picture
             const mainImg = document.getElementById("mainImage");
             if (mainImg) {
+                const photoLoaded = new Promise(resolve => {
+                    mainImg.onload = resolve;
+                    mainImg.onerror = resolve; // a broken photo must not block the page
+                });
                 mainImg.src = photos[0];
                 mainImg.alt = item.name;
+                await photoLoaded;
             }
 
             // Gallery: each thumbnail gets its own photo; a thumbnail without a photo is hidden

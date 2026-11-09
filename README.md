@@ -95,10 +95,10 @@ Key architectural upgrades include:
 │   └── about.css         # Responsive narrative layout
 │
 ├── js/
-│   ├── catalogue_2.js    # Product class, DummyJSON API loader, live search, sort & filters
-│   ├── cart_2.js         # ShoppingCart class, CRUD methods, localStorage, badge & checkout
-│   ├── validation_2.js   # Form validation, async JSONPlaceholder POST, message retrieval
-│   └── ui-effects_2.js   # jQuery animations, thumbnail cross-fade, dark mode toggling
+│   ├── catalogue.js    # Product class, DummyJSON API loader, live search, sort & filters
+│   ├── cart.js         # ShoppingCart class, CRUD methods, localStorage, badge & checkout
+│   ├── validation.js   # Form validation, async JSONPlaceholder POST, message retrieval
+│   └── ui-effects.js   # jQuery animations, thumbnail cross-fade, dark mode toggling
 │
 └── photo/                # Local graphic assets (logos, fallback photos, map pin)
 ```

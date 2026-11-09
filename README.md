@@ -70,7 +70,7 @@ Key architectural upgrades include:
 | **External REST API Integration** | `GET` from DummyJSON (`/products`); `POST` to JSONPlaceholder (`/posts`) | `js/catalogue.js`, `js/validation.js` |
 | **CRUD Lifecycle** | Create (add to cart), Read (render basket), Update (adjust qty), Delete (remove items) | `basket.html`, `js/cart.js` |
 | **Form Validation & Regex** | Email regex testing, dynamic input toggles (`#orderField`), and error prompt generation | `js/validation.js` |
-| **Asynchronous JavaScript** | `async/await`, Promises for image preloading, and `fetch()` error handling | `js/catalogue_2.js`, `js/validation.js`, `productpg.html` |
+| **Asynchronous JavaScript** | `async/await`, Promises for image preloading, and `fetch()` error handling | `js/catalogue.js`, `js/validation.js`, `productpg.html` |
 | **Cross-Tab Synchronization** | Browser `storage` event listener ensuring multi-tab cart coherence | `js/cart.js` |
 | **DOM & UI Animations** | jQuery `.slideToggle()`, `.fadeOut()/.fadeIn()`, and responsive Bootstrap 5 styling | `js/ui-effects.js`, `css/style.css` |
 

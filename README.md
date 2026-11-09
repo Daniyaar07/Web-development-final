@@ -47,7 +47,7 @@ Key architectural upgrades include:
 * **Wishlist Management:**
   * Handled persistent wishlist toggles with state array modifications (`indexOf`, `push`, `splice`) and dynamic heart glyph rendering (`♥` / `♡`).
 
-### 3. Temkeshev Aldiyar — Form Validation, API Communication, UI Effects & Dark Mode
+### 3. Daniyar Baikanov — Form Validation, API Communication, UI Effects & Dark Mode
 * **Contact Validation & Asynchronous Posting (`js/validation_2.js`):**
   * Engineered complete client-side validation verifying string lengths and regex pattern checking for emails (`/^[^\s@]+@[^\s@]+\.[^\s@]+$/`).
   * Implemented dynamic conditional input displays: selecting the topic "Returns" dynamically reveals the required "Order ID" input field.
@@ -65,14 +65,14 @@ Key architectural upgrades include:
 
 | Requirement | Implementation Details | Target File(s) |
 | :--- | :--- | :--- |
-| **Object-Oriented Programming (OOP)** | `Product` class for items; `ShoppingCart` class for cart business logic | `js/catalogue_2.js`, `js/cart_2.js` |
-| **Data Persistence (`localStorage`)** | Persistent storage for Cart (`modanova_cart`), Wishlist (`modanova_wishlist`), Theme (`theme`), and Messages (`messages`) | `js/cart_2.js`, `js/validation_2.js`, `js/ui-effects_2.js` |
-| **External REST API Integration** | `GET` from DummyJSON (`/products`); `POST` to JSONPlaceholder (`/posts`) | `js/catalogue_2.js`, `js/validation_2.js` |
-| **CRUD Lifecycle** | Create (add to cart), Read (render basket), Update (adjust qty), Delete (remove items) | `basket_2.html`, `js/cart_2.js` |
-| **Form Validation & Regex** | Email regex testing, dynamic input toggles (`#orderField`), and error prompt generation | `js/validation_2.js` |
-| **Asynchronous JavaScript** | `async/await`, Promises for image preloading, and `fetch()` error handling | `js/catalogue_2.js`, `js/validation_2.js`, `productpg_2.html` |
-| **Cross-Tab Synchronization** | Browser `storage` event listener ensuring multi-tab cart coherence | `js/cart_2.js` |
-| **DOM & UI Animations** | jQuery `.slideToggle()`, `.fadeOut()/.fadeIn()`, and responsive Bootstrap 5 styling | `js/ui-effects_2.js`, `css/style.css` |
+| **Object-Oriented Programming (OOP)** | `Product` class for items; `ShoppingCart` class for cart business logic | `js/catalogue.js`, `js/cart.js` |
+| **Data Persistence (`localStorage`)** | Persistent storage for Cart (`modanova_cart`), Wishlist (`modanova_wishlist`), Theme (`theme`), and Messages (`messages`) | `js/cart.js`, `js/validation.js`, `js/ui-effects.js` |
+| **External REST API Integration** | `GET` from DummyJSON (`/products`); `POST` to JSONPlaceholder (`/posts`) | `js/catalogue.js`, `js/validation.js` |
+| **CRUD Lifecycle** | Create (add to cart), Read (render basket), Update (adjust qty), Delete (remove items) | `basket.html`, `js/cart.js` |
+| **Form Validation & Regex** | Email regex testing, dynamic input toggles (`#orderField`), and error prompt generation | `js/validation.js` |
+| **Asynchronous JavaScript** | `async/await`, Promises for image preloading, and `fetch()` error handling | `js/catalogue_2.js`, `js/validation.js`, `productpg.html` |
+| **Cross-Tab Synchronization** | Browser `storage` event listener ensuring multi-tab cart coherence | `js/cart.js` |
+| **DOM & UI Animations** | jQuery `.slideToggle()`, `.fadeOut()/.fadeIn()`, and responsive Bootstrap 5 styling | `js/ui-effects.js`, `css/style.css` |
 
 ---
 

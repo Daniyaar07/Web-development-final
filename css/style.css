@@ -121,3 +121,19 @@ body.dark-mode #cart-summary .btn-gold:hover {
     background-color: #c29d2b !important;
     color: #000000 !important;
 }
+
+.btn-gold {
+    background-color: #d4af37 !important;
+    color: #1a1a1a !important;
+    border: none !important;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-gold:hover {
+    background-color: #c29d2b !important;
+    color: #000000 !important;
+}
+
+.btn-gold:active {
+    transform: scale(0.98);
+}

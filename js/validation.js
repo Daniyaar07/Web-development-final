@@ -92,6 +92,15 @@ document.addEventListener('DOMContentLoaded', function() {
             throw new Error('Failed');
         }
 
+    const messages = JSON.parse(localStorage.getItem("messages")) || [];
+
+    messages.push({
+    name: nameInput.value,
+    email: emailInput.value,
+    message: messageInput.value
+    });
+
+    localStorage.setItem("messages", JSON.stringify(messages));
         alert('Message sent successfully!');
         form.reset();
         document.querySelector('#orderField').style.display = 'none';
@@ -117,3 +126,25 @@ $(document).ready(function() {
         }
     });
 });
+document.getElementById("loadMessages").onclick = function() {
+    const messages = JSON.parse(localStorage.getItem("messages")) || [];
+    const container = document.getElementById("messages");
+    const status = document.getElementById("apiStatus");
+
+    container.innerHTML = "";
+
+    if (messages.length === 0) {
+        status.textContent = "No messages found";
+        return;
+    }
+
+    status.textContent = "Messages loaded successfully!";
+
+    messages.forEach(function(item) {
+        if (item.name && item.message) {
+            const p = document.createElement("p");
+            p.textContent = item.name + ": " + item.message;
+            container.appendChild(p);
+        }
+    });
+};

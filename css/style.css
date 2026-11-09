@@ -112,28 +112,41 @@ body.dark-mode .btn-group .disabled {
 
 /* Checkout btn */
 body.dark-mode #cart-summary .btn-gold {
-    background-color: #d4af37 !important;
-    color: #121212 !important;
+    background-color: #eed06e !important;
+    color: #1a1a1a !important;
     border: none !important;
 }
 
 body.dark-mode #cart-summary .btn-gold:hover {
-    background-color: #c29d2b !important;
+    background-color: #dfbf57 !important;
     color: #000000 !important;
 }
 
+/* Add to basket btn */
 .btn-gold {
-    background-color: #d4af37 !important;
-    color: #1a1a1a !important;
+    background-color: #1a1a1a !important;
+    color: #eed06e !important;
     border: none !important;
     transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 .btn-gold:hover {
-    background-color: #c29d2b !important;
-    color: #000000 !important;
+    background-color: #eed06e !important;
+    color: #030303 !important;
 }
 
 .btn-gold:active {
     transform: scale(0.98);
+}
+
+body.dark-mode .btn-gold {
+    background-color: #eed06e !important;
+    color: #1a1a1a !important;
+    border: 1px solid #eed06e !important;
+}
+
+body.dark-mode .btn-gold:hover {
+    background-color: #dfbf57 !important;
+    color: #000000 !important;
+    border-color: #dfbf57 !important;
 }

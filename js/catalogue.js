@@ -237,7 +237,7 @@ function init() {
     const sortSelect = document.getElementById("sort-select");
     const categoryFilter = document.getElementById("category-filter");
 
-    // Search text may come from the home page: catalogue_2.html?q=shirt
+    // Search text may come from the home page: catalogue.html?q=shirt
     state.query = new URLSearchParams(window.location.search).get("q") || "";
     searchInput.value = state.query;
 
@@ -254,7 +254,7 @@ function init() {
         applyFilters();
     });
 
-    // Sort select (exists only on catalogue_2.html).
+    // Sort select (on catalogue.html).
     if (sortSelect) {
         sortSelect.addEventListener("change", function () {
             state.sort = sortSelect.value;

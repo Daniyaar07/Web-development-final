@@ -20,7 +20,7 @@ Key architectural upgrades include:
 
 ## Team Work Distribution & Technical Contributions
 ### 1. Mansur Nursultanov — API Catalogue, Dynamic Routing & Filtering Pipeline
-* **Asynchronous API Integration (`js/catalogue_2.js`):**
+* **Asynchronous API Integration (`js/catalogue.js`, `catalogue.html`):**
   * Integrated the **DummyJSON API** (`https://dummyjson.com/products`) using `fetch()` and `async/await` with query params (`limit=0&select=...`).
   * Filtered incoming clothes/shoes categories (`CLOTHING_CATEGORIES`) and performed currency conversion from USD to KZT (`USD_TO_KZT = 500`).
 * **OOP Product Modeling:**
@@ -28,7 +28,7 @@ Key architectural upgrades include:
 * **Search, Sort & Filter Pipeline:**
   * Implemented real-time dynamic search by query string (`q=`), dynamic category pill generation (`renderCategoryButtons()`), and numerical sorting (Price: Low to High / High to Low).
   * Built network status feedback handlers (`showLoading()`, `showError()` with automatic retry button, and empty state banners).
-* **Product Details Dynamic Routing (`productpg_2.html`):**
+* **Product Details Dynamic Routing (`productpg.html`):**
   * Integrated URL parameter extraction via `URLSearchParams(?id=)` to fetch single product items (`fetchProductById(id)`).
   * Implemented defensive image preloading promises (`mainImg.onload`) and gallery thumbnail rendering.
  

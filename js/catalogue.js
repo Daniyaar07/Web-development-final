@@ -1,5 +1,3 @@
-// Catalogue page (Participant 1): products from DummyJSON API, Product class, search, category filter, sorting.
-
 const API_URL = "https://dummyjson.com/products";
 
 // The API gives prices in US dollars; the whole site works in tenge, so we convert with a fixed rate.

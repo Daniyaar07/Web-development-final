@@ -115,17 +115,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-$(document).ready(function() {
-    $("#topic").change(function() {
-        if ($("#topic").val() === "Returns") {
-            $("#orderField").show();
-            $("#orderId").prop("required", true);
-        } else {
-            $("#orderField").hide();
-            $("#orderId").prop("required", false);
-        }
-    });
-});
 document.getElementById("loadMessages").onclick = function() {
     const messages = JSON.parse(localStorage.getItem("messages")) || [];
     const container = document.getElementById("messages");

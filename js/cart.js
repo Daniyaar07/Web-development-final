@@ -75,12 +75,10 @@ class ShoppingCart {
     checkout() {
         if (!this.items || this.items.length === 0) return;
 
-        // Очищаем корзину в объекте и в localStorage
         this.items = [];
         localStorage.setItem('modanova_cart', JSON.stringify(this.items));
         this.updateBadge();
 
-        // Выводим сообщение о покупке
         const container = document.getElementById('cart-items-container');
         const summary = document.getElementById('cart-summary');
         
@@ -103,7 +101,6 @@ class ShoppingCart {
         const summary = document.getElementById('cart-summary');
         if (!container || !summary) return;
 
-        // Не перезаписывать, если сейчас показано сообщение об успехе
         if (container.querySelector('h2')) return;
 
         if (!this.items || this.items.length === 0) {

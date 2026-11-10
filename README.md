@@ -54,8 +54,8 @@ Key architectural upgrades include:
   * Built asynchronous message submission (`fetch` POST to JSONPlaceholder) with dynamic submit button loading states (`Sending...` -> `Send message`).
   * Integrated local message history logging (`localStorage.getItem("messages")`) with dynamic display via `#loadMessages`.
 * **jQuery UI Effects & Animations (`js/ui-effects.js`):**
-  * Implemented the support schedule accordion toggle using `.slideToggle(800)` on `contact_2.html`.
-  * Built smooth thumbnail image swapping with chained `.fadeOut(200)` and `.fadeIn(200)` transitions on `productpg_2.html`.
+  * Implemented the support schedule accordion toggle using `.slideToggle(800)` on `contact.html`.
+  * Built smooth thumbnail image swapping with chained `.fadeOut(200)` and `.fadeIn(200)` transitions on `productpg.html`.
   * Handled apparel size button selection toggling active classes across siblings.
 * **Persistent Theme Switcher (Dark Mode):**
   * Created global dark mode toggling (`body.dark-mode`) preserved via `localStorage.getItem("theme")`.

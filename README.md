@@ -33,7 +33,7 @@ Key architectural upgrades include:
   * Implemented defensive image preloading promises (`mainImg.onload`) and gallery thumbnail rendering.
  
 ### 2. Aldiyar Temkeshev — OOP Cart Engine, CRUD Operations & Storage Architecture
-* **OOP Cart Architecture (`js/cart_2.js`):**
+* **OOP Cart Architecture (`js/cart.js`):**
   * Designed and built the central `ShoppingCart` class encapsulating cart state, data validation, badge counters, and local persistence.
 * **Full CRUD Lifecycle:**
   * **Create (`addItem`):** Adds items with regex-cleaned prices, custom thumbnails, and automatic item grouping.
@@ -48,12 +48,12 @@ Key architectural upgrades include:
   * Handled persistent wishlist toggles with state array modifications (`indexOf`, `push`, `splice`) and dynamic heart glyph rendering (`♥` / `♡`).
 
 ### 3. Daniyar Baikanov — Form Validation, API Communication, UI Effects & Dark Mode
-* **Contact Validation & Asynchronous Posting (`js/validation_2.js`):**
+* **Contact Validation & Asynchronous Posting (`js/validation.js`):**
   * Engineered complete client-side validation verifying string lengths and regex pattern checking for emails (`/^[^\s@]+@[^\s@]+\.[^\s@]+$/`).
   * Implemented dynamic conditional input displays: selecting the topic "Returns" dynamically reveals the required "Order ID" input field.
   * Built asynchronous message submission (`fetch` POST to JSONPlaceholder) with dynamic submit button loading states (`Sending...` -> `Send message`).
   * Integrated local message history logging (`localStorage.getItem("messages")`) with dynamic display via `#loadMessages`.
-* **jQuery UI Effects & Animations (`js/ui-effects_2.js`):**
+* **jQuery UI Effects & Animations (`js/ui-effects.js`):**
   * Implemented the support schedule accordion toggle using `.slideToggle(800)` on `contact_2.html`.
   * Built smooth thumbnail image swapping with chained `.fadeOut(200)` and `.fadeIn(200)` transitions on `productpg_2.html`.
   * Handled apparel size button selection toggling active classes across siblings.
